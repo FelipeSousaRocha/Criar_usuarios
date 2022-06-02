@@ -16,6 +16,9 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.black87,
         //Titulo
         title: const Text('Create users'),
+        actions: <Widget>[
+          IconButton(onPressed: () {}, icon: Icon(Icons.add))
+        ],
       ),
       body: ListView.builder(
         //Tamanho
