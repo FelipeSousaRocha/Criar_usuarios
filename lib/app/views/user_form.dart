@@ -7,7 +7,13 @@ import '../../provider/users.dart';
 
 class UserForm extends StatelessWidget {
   final _form = GlobalKey<FormState>();
-  final Map<String, String> _formData = {};
+  final Map<String, String> _formData = {
+    "id": "1",
+    "name": 'Maria',
+    "password": 'maria123',
+    "email": 'maria@alunos.com.br',
+    "avatarUrl": ''
+  };
 
   UserForm({Key? key}) : super(key: key);
   @override
