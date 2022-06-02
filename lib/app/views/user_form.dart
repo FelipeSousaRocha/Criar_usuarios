@@ -16,11 +16,11 @@ class _UserFormState extends State<UserForm> {
   final _form = GlobalKey<FormState>();
 
   final Map<String, String> _formData = {
-    'id': 'id',
-    'name': 'name',
-    'email': 'email',
-    'password': 'password',
-    'avatarUrl': 'avatarUrl'
+    'id': '',
+    'name': '',
+    'email': '',
+    'password': '',
+    'avatarUrl': ''
   };
 
   void _loadFormData(User user) {
