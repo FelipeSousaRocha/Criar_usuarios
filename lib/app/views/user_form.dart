@@ -94,11 +94,7 @@ class _UserFormState extends State<UserForm> {
                   }
                   return null;
                 },
-                onSaved: (value) {
-                  if (kDebugMode) {
-                    print(value);
-                  }
-                },
+                onSaved: (value) => _formData['email'] = value!,
                 decoration: const InputDecoration(labelText: 'Email'),
               ),
               TextFormField(
@@ -113,11 +109,7 @@ class _UserFormState extends State<UserForm> {
                   }
                   return null;
                 },
-                onSaved: (value) {
-                  if (kDebugMode) {
-                    print(value);
-                  }
-                },
+                onSaved: (value) => _formData['password'] = value!,
                 decoration: const InputDecoration(labelText: 'Password'),
               ),
               TextFormField(
@@ -128,11 +120,7 @@ class _UserFormState extends State<UserForm> {
                   }
                   return null;
                 },
-                onSaved: (value) {
-                  if (kDebugMode) {
-                    print(value);
-                  }
-                },
+                onSaved: (value) => _formData['avatarUrl'] = value!,
                 decoration: const InputDecoration(labelText: 'Url do avatar'),
               ),
             ],

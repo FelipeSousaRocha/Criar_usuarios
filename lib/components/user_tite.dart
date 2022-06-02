@@ -43,8 +43,8 @@ class UserTile extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (ctx) => AlertDialog(
-                      title: Text('User remove'),
-                      content: Text('Are you sure?'),
+                      title: const Text('User remove'),
+                      content: const Text('Are you sure?'),
                       actions: <Widget>[
                         FlatButton(
                           child: Text('Não'),
@@ -52,14 +52,15 @@ class UserTile extends StatelessWidget {
                         ),
                         FlatButton(
                           child: Text('Sim'),
-                          onPressed: () => {
-                            Provider.of<Users>(context, listen: false).remove(user),
-                            Navigator.of(context).pop(true)
-                          },
+                          onPressed: () => Navigator.of(context).pop(true),
                         ),
                       ],
                     ),
-                  );
+                  ).then((confimed) {
+                    if (confimed) {
+                      Provider.of<Users>(context, listen: false).remove(user);
+                    }
+                  });
                 },
               ),
             ],
