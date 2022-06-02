@@ -14,6 +14,7 @@ class UserForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black87,
         title: const Text('User form'),
         actions: <Widget>[
           IconButton(
