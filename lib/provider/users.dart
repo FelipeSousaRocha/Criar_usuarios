@@ -5,7 +5,7 @@ import 'package:fluttercrud/models/user.dart';
 import 'package:fluttercrud/data/dummy_users.dart';
 
 class Users with ChangeNotifier {
-  Map<String, User> _items = {
+  final Map<String, User> _items = {
     ...DUMMY_USERS
   };
 
@@ -24,6 +24,7 @@ class Users with ChangeNotifier {
   }
 
   void put(User user) {
+    // ignore: unnecessary_null_comparison
     if (user == null) {
       return;
     }
@@ -56,7 +57,7 @@ class Users with ChangeNotifier {
   }
 
   void remove(User user) {
-    if (user != null && user.id != null) {
+    if (user.id != null) {
       _items.remove(user.id);
       notifyListeners();
     }

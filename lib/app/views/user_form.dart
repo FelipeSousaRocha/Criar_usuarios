@@ -5,19 +5,35 @@ import 'package:provider/provider.dart';
 
 import '../../provider/users.dart';
 
-class UserForm extends StatelessWidget {
-  final _form = GlobalKey<FormState>();
-  final Map<String, String> _formData = {
-    "id": "",
-    "name": '',
-    "password": '',
-    "email": '',
-    "avatarUrl": ''
-  };
+class UserForm extends StatefulWidget {
+  const UserForm({Key? key}) : super(key: key);
 
-  UserForm({Key? key}) : super(key: key);
+  @override
+  State<UserForm> createState() => _UserFormState();
+}
+
+class _UserFormState extends State<UserForm> {
+  final _form = GlobalKey<FormState>();
+
+  final Map<String, String> _formData = {};
+
+  void _loadFormData(User user) {
+    // ignore: unnecessary_null_comparison
+    if (user != null) {
+      _formData['id'] = user.id!;
+      _formData['name'] = user.name;
+      _formData['email'] = user.email;
+      _formData['password'] = user.password;
+      _formData['avatarUrl'] = user.avatarUrl;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final user = ModalRoute.of(context)?.settings.arguments as User;
+
+    _loadFormData(user);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
@@ -54,19 +70,23 @@ class UserForm extends StatelessWidget {
           child: Column(
             children: [
               TextFormField(
+                initialValue: _formData['name'],
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Campo não preenchido!';
                   }
+                  return null;
                 },
                 onSaved: (value) => _formData['name'] = value!,
                 decoration: const InputDecoration(labelText: 'Name'),
               ),
               TextFormField(
+                initialValue: _formData['email'],
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Campo não preenchido!';
                   }
+                  return null;
                 },
                 onSaved: (value) {
                   if (kDebugMode) {
@@ -76,6 +96,7 @@ class UserForm extends StatelessWidget {
                 decoration: const InputDecoration(labelText: 'Email'),
               ),
               TextFormField(
+                initialValue: _formData['password'],
                 obscureText: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -94,6 +115,7 @@ class UserForm extends StatelessWidget {
                 decoration: const InputDecoration(labelText: 'Password'),
               ),
               TextFormField(
+                initialValue: _formData['avatarUrl'],
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Campo não preenchido!';
