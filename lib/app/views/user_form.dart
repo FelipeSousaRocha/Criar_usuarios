@@ -15,7 +15,13 @@ class UserForm extends StatefulWidget {
 class _UserFormState extends State<UserForm> {
   final _form = GlobalKey<FormState>();
 
-  final Map<String, String> _formData = {};
+  final Map<String, String> _formData = {
+    'id': 'id',
+    'name': 'name',
+    'email': 'email',
+    'password': 'password',
+    'avatarUrl': 'avatarUrl'
+  };
 
   void _loadFormData(User user) {
     // ignore: unnecessary_null_comparison
