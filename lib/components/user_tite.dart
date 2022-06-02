@@ -52,7 +52,10 @@ class UserTile extends StatelessWidget {
                         ),
                         FlatButton(
                           child: Text('Sim'),
-                          onPressed: () => Navigator.of(context).pop(true),
+                          onPressed: () => {
+                            Provider.of<Users>(context, listen: false).remove(user),
+                            Navigator.of(context).pop(true)
+                          },
                         ),
                       ],
                     ),
