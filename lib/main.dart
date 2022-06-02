@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'app/views/splash_view.dart';
 // ignore: unused_import
 import 'package:fluttercrud/models/user.dart';
