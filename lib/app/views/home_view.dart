@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed(AppRoutes.USER_FORM);
               },
-              icon: Icon(Icons.add))
+              icon: const Icon(Icons.add))
         ],
       ),
       body: ListView.builder(
