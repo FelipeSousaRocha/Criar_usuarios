@@ -32,6 +32,8 @@ class _UserFormState extends State<UserForm> {
   Widget build(BuildContext context) {
     final user = ModalRoute.of(context)?.settings.arguments as User;
 
+    print(user);
+
     _loadFormData(user);
 
     return Scaffold(
