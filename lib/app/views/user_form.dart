@@ -51,7 +51,7 @@ class _UserFormState extends State<UserForm> {
 
               if (isValid) {
                 _form.currentState?.save();
-                Provider.of<Users>(context, listen: false).put(
+                Provider.of<Users>(context).put(
                   User(
                     id: _formData['id'] ?? ' ',
                     name: _formData['name'] ?? ' ',
