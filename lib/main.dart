@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttercrud/routes/app_routes.dart';
 import 'package:provider/provider.dart';
 import 'app/views/splash_view.dart';
 // ignore: unused_import
 import 'package:fluttercrud/models/user.dart';
+import 'app/views/user_form.dart';
 import 'provider/users.dart';
 
 void main() {
@@ -19,7 +21,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Create user',
         theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
-        home: const Splash(),
+        routes: {
+          AppRoutes.HOME: (_) => const Splash(),
+          AppRoutes.USER_FORM: (_) => UserForm(),
+        },
       ),
     );
   }
