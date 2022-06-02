@@ -53,11 +53,11 @@ class _UserFormState extends State<UserForm> {
                 _form.currentState?.save();
                 Provider.of<Users>(context, listen: false).put(
                   User(
-                    id: _formData['id'],
-                    name: _formData['name']!,
-                    email: _formData['email']!,
-                    password: _formData['password']!,
-                    avatarUrl: _formData['avatarUrl']!,
+                    id: _formData['id'] ?? ' ',
+                    name: _formData['name'] ?? ' ',
+                    email: _formData['email'] ?? ' ',
+                    avatarUrl: _formData['avatarUrl'] ?? ' ',
+                    password: _formData['password'] ?? ' ',
                   ),
                 );
                 Navigator.of(context).pop();
