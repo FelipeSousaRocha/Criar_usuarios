@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
         routes: {
           AppRoutes.HOME: (_) => const Splash(),
-          AppRoutes.USER_FORM: (_) => UserForm(),
+          AppRoutes.USER_FORM: (_) => const UserForm(),
         },
       ),
     );

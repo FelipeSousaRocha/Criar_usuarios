@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttercrud/models/user.dart';
+import 'package:provider/provider.dart';
 
+import '../provider/users.dart';
 import '../routes/app_routes.dart';
 
 class UserTile extends StatelessWidget {
@@ -11,7 +13,8 @@ class UserTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Se nao tiver fica vazio
-    final avatar = user.avatarUrl == null || user.avatarUrl.isEmpty ? CircleAvatar(child: Icon(Icons.person)) : CircleAvatar(backgroundImage: NetworkImage(user.avatarUrl));
+    // ignore: unnecessary_null_comparison
+    final avatar = user.avatarUrl == null || user.avatarUrl.isEmpty ? const CircleAvatar(child: Icon(Icons.person)) : CircleAvatar(backgroundImage: NetworkImage(user.avatarUrl));
 
     return ListTile(
         leading: avatar,
@@ -36,7 +39,30 @@ class UserTile extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.delete),
                 color: Colors.red,
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                      title: Text('User remove'),
+                      content: Text('Are you sure?'),
+                      actions: <Widget>[
+                        FlatButton(
+                          child: Text('Não'),
+                          onPressed: () {
+                            Navigator.of(context).pop;
+                          },
+                        ),
+                        FlatButton(
+                          child: Text('Sim'),
+                          onPressed: () {
+                            Provider.of<Users>(context, listen: false).remove(user);
+                            Navigator.of(context).pop;
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
             ],
           ),
