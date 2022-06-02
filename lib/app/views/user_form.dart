@@ -70,6 +70,7 @@ class UserForm extends StatelessWidget {
                 decoration: const InputDecoration(labelText: 'Email'),
               ),
               TextFormField(
+                obscureText: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Campo não preenchido!';
